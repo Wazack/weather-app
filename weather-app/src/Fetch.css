@@ -1,0 +1,37 @@
+.fetch {
+    display: flex;
+    height: 100%;
+}
+
+.left {
+    width: 22vw;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.right img {
+    height: 200px;
+}
+
+.pressure {
+    display: flex;
+}
+
+.pressure p {
+    display: flex;
+    align-items: center;
+}
+
+.pressure p:first-child {
+    margin-right: 10px;
+}
+
+.pressure img {
+    height: 20px;
+}

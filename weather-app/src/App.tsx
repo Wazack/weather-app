@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
+import Fetch from './Fetch';
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
       <div className="App">
         <input className='location' type={'text'} placeholder="Enter your location" />
         <div className='bg-square'>
+          <Fetch />
         </div>
       </div>
     );
