@@ -1,0 +1,43 @@
+form {
+	margin-top: 53px;
+	display:flex;
+	align-items: center;
+	gap: 10px;
+	flex-direction:row;
+	background: rgba($color: #585858, $alpha: .3);
+	border-radius: 55px;
+	width: 620px;
+	height: 80px;
+	
+	input {
+		width: 495px;
+		height: inherit;
+		border: unset;
+		background: unset;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 30px;
+		color: rgba(255, 255, 255, 0.3);
+		line-height: 45px;
+		margin-left: 39px;
+	
+		&:focus {
+			outline: unset;
+		}
+	}
+	
+	button {
+		all: unset;
+		width: 60px;
+		height: 60px;
+		border-radius: 55px;
+		background: #FFFF;
+		cursor: pointer;
+	
+		svg {
+			display: block;
+			margin:auto;
+		}
+	}
+}

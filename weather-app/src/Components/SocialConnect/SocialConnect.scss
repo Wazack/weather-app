@@ -1,0 +1,14 @@
+.social-connect {
+	display: flex;
+	gap: 8px;
+	a {
+		border: 1.5px solid #FFFFFF;
+		border-radius: 50%;
+		padding: 17px;
+		background: rgba(217, 217, 217, 0.1);
+	}
+	svg {
+		display: block;
+		margin:auto;
+	}
+}
