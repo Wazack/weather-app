@@ -1,0 +1,32 @@
+body {
+  background-color: #FAACA8;
+  background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);  
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-direction: column;
+}
+
+.location {
+  width: 6vw;
+  height: 2vh;
+  color: white;
+  text-align: center;
+  background-color: rgba(62, 62, 62, 0.35);
+  border-style: none;
+  border-radius: 6px;
+  margin-bottom: 1vh;
+}
+
+.location:focus {
+  outline: none;
+}
+
+.location::placeholder {
+  color: white;
+}

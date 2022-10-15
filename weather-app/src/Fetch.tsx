@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import './Fetch.css';
 import WindLogo from './assets/WindLogo.svg';
 import WaterDrop from './assets/WaterDrop.svg';
+import SearchCity from "./SearchCity/SearchCity";
+import DisplayWeather from "./DisplayWeather.tsx/DisplayWeather";
 
 function Fetch() {
 
@@ -33,6 +35,7 @@ function Fetch() {
             latitude : pos.coords.latitude,
             longitude : pos.coords.longitude
         });
+        setIsLoading(true)
     }
 
     navigator.geolocation.getCurrentPosition(success);
@@ -64,25 +67,26 @@ function Fetch() {
             })
     }
 
-    var date = new Date();
-
     return (
-            <div className="fetch">
-                <div className="left">
-                    <h1>{dataa.city}</h1>
-                    <p>{days[date.getDay()]}</p>
-                </div>
-                <div className="right">
-                    <img src={`http://openweathermap.org/img/wn/${dataa.icon}@2x.png`} />
-                    <h2>{dataa.weather}</h2>
-                    <p>{dataa.temperature}°C</p>
-                    <div className="pressure">
-                        <p><img src={WindLogo} />{dataa.wind_speed} km/h</p>
-                        <p><img src={WaterDrop} />{dataa.humidity} %</p>
-                    </div>
-                </div>
-            </div>
+        !isLoading?(<SearchCity/>) : <DisplayWeather/>
     )
+
+    // return (
+    //         <div className="fetch">
+    //             <div className="left">
+    //                 <h1>{dataa.city}</h1>
+    //             </div>
+    //             <div className="right">
+    //                 <img src={`http://openweathermap.org/img/wn/${dataa.icon}@2x.png`} />
+    //                 <h2>{dataa.weather}</h2>
+    //                 <p>{dataa.temperature}°C</p>
+    //                 <div className="pressure">
+    //                     <p><img src={WindLogo} />{dataa.wind_speed} km/h</p>
+    //                     <p><img src={WaterDrop} />{dataa.humidity} %</p>
+    //                 </div>
+    //             </div>
+    //         </div>
+    // )
 }
 
 export default Fetch;

@@ -1,28 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import axios from 'axios';
-import './App.css';
-import Fetch from './Fetch';
+import React, { useState } from 'react';
+import './App.scss';
+import SearchCity from './SearchCity/SearchCity';
+import DisplayWeather from './DisplayWeather.tsx/DisplayWeather';
 
+function App() {
+	const [isLoaded, setIsLoaded] = useState(false);
 
-class App extends React.Component {
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-    });
-  }
+	function success(pos: { coords: { latitude: any; longitude: any; }; }) {
+        // setpos ({
+        //     city : "",
+        //     latitude : pos.coords.latitude,
+        //     longitude : pos.coords.longitude
+        // });
+    	setIsLoaded(true)
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <input className='location' type={'text'} placeholder="Enter your location" />
-        <div className='bg-square'>
-          <Fetch />
-        </div>
-      </div>
-    );
-  }
+    navigator.geolocation.getCurrentPosition(success);
+
+	return(
+		isLoaded?(<DisplayWeather/>) : <SearchCity/>
+	)
 }
 
 export default App;
