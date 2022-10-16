@@ -7,18 +7,27 @@ function SearchBar(props: any) {
 
 	function foundCity(e: any) {
 		e.preventDefault();
-		// console.log('inputRef: ' + inputRef.current?.value);
-		fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&&lang=fr&appid=e46e0fbafc5076273c51ffb174510df0&units=metric`)
+		fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${inputRef.current?.value}&lang=fr&appid=287db65e65ca60b08a6cdd8d7928a04b&units=metric`)
 			.then ((response) => response.json())
 			.then((data) => {
-				console.log(data);
-				// console.log('city: ' + data.city.name);
+				props.setdata({
+					info : "test",
+                    city : data.city.name,
+                    temperature : data.list[0].main.temp,
+                    weather : data.list[0].weather[0].main,
+                    icon : data.list[0].weather[0].icon,
+                    humidity : data.list[0].main.humidity,
+                    wind_speed : data.list[0].wind.speed,
+                    timestamp : data.list[0].dt,
+					loaded : true,
+                });
+				console.log(data.city.name);
 			})
             .catch(function(err) {
                 console.log(err);
             })
 		props.setIsLoaded(true);
-		console.log('foundCity');
+		// e.target.reset();
 	}
 
 	return (
