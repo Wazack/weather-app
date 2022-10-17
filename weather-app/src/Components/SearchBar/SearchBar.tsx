@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useRef } from 'react';
+import React, {  useRef } from 'react';
 import './SearchBar.scss'
 
 function SearchBar(props: any) {
@@ -27,7 +27,7 @@ function SearchBar(props: any) {
                 console.log(err);
             })
 		props.setIsLoaded(true);
-		// e.target.reset();
+		inputRef.current!.value = '';
 	}
 
 	return (
